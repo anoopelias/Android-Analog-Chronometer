@@ -44,23 +44,22 @@ public class ClockView extends View {
 
 	public ClockView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		Resources r = getContext().getResources();
 		TypedArray a = context.obtainStyledAttributes(attrs,
 				R.styleable.ClockView, defStyle, 0);
 
 		mDial = a.getDrawable(R.styleable.ClockView_dial);
 		if (mDial == null) {
-			mDial = r.getDrawable(R.drawable.clock_dial);
+			mDial = ContextCompat.getDrawable(context, R.drawable.clock_dial);
 		}
 
 		mBigHand = a.getDrawable(R.styleable.ClockView_big_hand);
 		if (mBigHand == null) {
-			mBigHand = r.getDrawable(R.drawable.big_needle);
+			mBigHand = ContextCompat.getDrawable(context, R.drawable.big_needle);
 		}
 
 		mSmallHand = a.getDrawable(R.styleable.ClockView_small_hand);
 		if (mSmallHand == null) {
-			mSmallHand = r.getDrawable(R.drawable.small_needle);
+			mSmallHand = ContextCompat.getDrawable(context, R.drawable.small_needle);
 		}
 
 		int hour = a.getInt(R.styleable.ClockView_hour, 0);
